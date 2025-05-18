@@ -23,6 +23,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
+      - cache_data:/var/cache/nginx
     depends_on:
       - service1
       - service2
@@ -32,3 +33,6 @@ services:
 networks:
   webnet:
     driver: bridge
+
+volumes:
+  cache_data:
