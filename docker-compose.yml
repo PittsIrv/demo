@@ -27,6 +27,7 @@ services:
       - ./nginx/ssl:/etc/nginx/ssl:ro
       - cache_data:/var/cache/nginx
       - ./nginx/geoip:/etc/nginx/geoip:ro
+      - ./nginx/realip.conf:/etc/nginx/conf.d/realip.conf:ro
     depends_on:
       - service1
       - service2
