@@ -14,8 +14,9 @@ services:
       - webnet
 
   nginx:
-    context: .
-    dockerfile: Dockerfile-nginx-geoip
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx-geoip
     container_name: nginx-proxy
     ports:
       - "80:80"
