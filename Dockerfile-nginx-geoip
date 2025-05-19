@@ -3,6 +3,7 @@ FROM nginx:1.28.0
 # 1. Install build‑deps & MaxMind DB library
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+      wget \
       git build-essential libmaxminddb-dev libpcre3-dev zlib1g-dev libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
