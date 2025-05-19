@@ -14,7 +14,9 @@ services:
       - webnet
 
   nginx:
-    build: ./nginx
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx-geoip
     container_name: nginx-proxy
     ports:
       - "80:80"
@@ -24,7 +26,7 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
       - cache_data:/var/cache/nginx
-      - /etc/nginx/geoip/GeoLite2-Country.mmdb:/etc/nginx/geoip/GeoLite2-Country.mmdb:ro
+      - ./nginx/geoip:/etc/nginx/geoip:ro
     depends_on:
       - service1
       - service2
